@@ -7,7 +7,7 @@ An example project to demonstrate the usage of [vim-hdl][vim-hdl].
 1. Check the ModelSim® version you have installed (any version should work)
 
     ```bash
-    $ vcom -version
+    vcom -version
     Model Technology ModelSim ALTERA vcom 10.3c Compiler 2014.09 Sep 20 2014
     ```
 
@@ -16,15 +16,15 @@ An example project to demonstrate the usage of [vim-hdl][vim-hdl].
 3. Clone this repository
 
     ```bash
-    $ mkdir ~/temp/
-    $ cd ~/temp/
-    $ git clone https://github.com/suoto/vim-hdl-examples.git
+    mkdir ~/temp/
+    cd ~/temp/
+    git clone https://github.com/suoto/vim-hdl-examples.git
     ```
 
 4. Open a VHD from this repository
 
     ```bash
-    $ vim another_library/foo.vhd
+    vim another_library/foo.vhd
     ```
 
 5. Select the project file
