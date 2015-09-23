@@ -33,10 +33,10 @@ An example project to demonstrate the usage of [vim-hdl][vim-hdl].
     let g:vimhdl_conf_file = 'example.conf'
     ```
 
-6. Save the file to run the plugin
+6. Run Syntastic check
 
     ```viml
-    :w
+    :SyntasticCheck
     ```
 
 ## Issues
