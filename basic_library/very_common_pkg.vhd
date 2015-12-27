@@ -18,16 +18,11 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-library basic_library;
-
-package package_with_constants is
-
-    constant SOME_INTEGER_CONSTANT : integer := 10;
-    constant SOME_STRING_CONSTANT  : string := "Hello";
-
-    constant SOME_STRING : string := basic_library.very_common_pkg.VIM_HDL_VERSION;
+package very_common_pkg is
+    constant VIM_HDL_VERSION : string := "0.1";
 end;
 
-package body package_with_constants is
+package body very_common_pkg is
 
 end package body;
+

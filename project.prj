@@ -1,0 +1,16 @@
+# Use relaxed flags when building the whole project
+# batch_build_flags = -relax
+# builder = xvhdl
+
+batch_build_flags = -explicit -permissive
+# Use stricter flags for building the file we're working on
+single_build_flags = -explicit -check_synthesis -lint -rangecheck -bindAtCompile -pedantic -2008
+# Compiler selection
+builder = msim
+# Location of the built files
+target_dir = .build
+vhdl basic_library basic_library/very_common_pkg.vhd
+vhdl basic_library basic_library/package_with_constants.vhd
+vhdl basic_library basic_library/clock_divider.vhd 
+vhdl another_library another_library/foo.vhd  -2008
+vhdl basic_library basic_library/package_with_functions.vhd 
