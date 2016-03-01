@@ -1,4 +1,4 @@
-global_build_flags = --ieee=synopsys
+global_build_flags = --ieee=synopsys --warn-binding --syn-binding
 # Compiler selection
 builder = ghdl
 # Location of the built files
@@ -7,6 +7,6 @@ target_dir = .build
 vhdl   basic_library     basic_library/very_common_pkg.vhd
 vhdl   basic_library     basic_library/package_with_constants.vhd
 vhdl   basic_library     basic_library/clock_divider.vhd
-vhdl   another_library   another_library/foo.vhd                     --std=08
+vhdl   another_library   another_library/foo.vhd                     --std=02
 vhdl   basic_library     basic_library/package_with_functions.vhd
 
