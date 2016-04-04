@@ -18,16 +18,35 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-library basic_library;
+package very_common_pkg is
+    constant VIM_HDL_VERSION : string := "0.1";
 
-package package_with_constants is
+    component clock_divider is
+        generic (
+            DIVIDER : integer := 10
+        );
+        port (
+            reset : in std_logic;
+            clk_input : in  std_logic;
+            clk_output : out std_logic
+        );
+    end component;
 
-    constant SOME_INTEGER_CONSTANT : integer := 10;
-    constant SOME_STRING_CONSTANT  : string := "Hello";
+    component clk_en_generator is
+        generic (
+            DIVIDER : integer := 10
+        );
+        port (
+            reset     : in std_logic;
+            clk_input : in  std_logic;
+            clk_en    : out std_logic
+        );
 
-    constant SOME_STRING : string := basic_library.very_common_pkg.VIM_HDL_VERSION;
-end;
+    end component;
 
-package body package_with_constants is
+end package;
+
+package body very_common_pkg is
 
 end package body;
+

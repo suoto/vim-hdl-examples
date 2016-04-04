@@ -18,46 +18,52 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;			   
 
 library work;
-use work.package_with_constants;
+use work.very_common_pkg.all;
 
-entity clock_divider is
+entity clk_en_generator is
     generic (
         DIVIDER : integer := 10
     );
     port (
-        reset : in std_logic;
+        reset     : in std_logic;
         clk_input : in  std_logic;
-        clk_output : out std_logic
+        clk_en    : out std_logic
     );
 
-end clock_divider;
+end clk_en_generator;
 
-architecture clock_divider of clock_divider is
+architecture clk_en_generator of clk_en_generator is
 
-    signal counter      : integer range 0 to DIVIDER - 1 := 0;
-    signal clk_internal : std_logic := '0';
+    signal clk_divided  : std_logic;
+    signal clk_divided0 : std_logic;
 
 begin
 
-    clk_output <= clk_internal;
+    clk_divider_u : clock_divider
+        generic map (
+            DIVIDER => DIVIDER
+        )
+        port map (
+            reset      => reset,
+            clk_input  => clk_input,
+            clk_output => clk_divided
+        );
 
-    -- We read 'reset' signal asynchronously inside the process to force
-    -- msim issuing a synthesis warning
-    process(clk_input)          
-    begin                       
-        if reset = '1' then     
-            counter <= 0;
-        elsif clk_input'event and clk_input = '1' then
-            if counter < DIVIDER then
-                counter <= counter + 1;
-            else
-                counter <= 0;
-                clk_internal <= not clk_internal;
+    process(clk_input)
+    begin
+        if clk_input'event and clk_input = '1' then
+            clk_divided0 <= clk_divided0;
+
+            clk_en <= '0';
+            if clk_divided = '1' and clk_divided0 = '0' then
+                clk_en <= '1';
+            end if;
+
+            if reset = '1' then
+                clk_en <= '0';
             end if;
         end if;
     end process;
 
-
-end clock_divider;
-
+end clk_en_generator;
 
