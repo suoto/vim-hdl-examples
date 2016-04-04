@@ -28,6 +28,6 @@ package package_with_constants is
     constant SOME_STRING : string := basic_library.very_common_pkg.VIM_HDL_VERSION;
 end;
 
-package body package_with_constants is
+-- package body package_with_constants is
 
-end package body;
+-- end package body;

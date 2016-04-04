@@ -46,7 +46,7 @@ package very_common_pkg is
 
 end package;
 
-package body very_common_pkg is
+-- package body very_common_pkg is
 
-end package body;
+-- end package body;
 
