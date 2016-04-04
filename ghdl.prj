@@ -9,4 +9,5 @@ vhdl   basic_library     basic_library/package_with_constants.vhd
 vhdl   basic_library     basic_library/clock_divider.vhd
 vhdl   another_library   another_library/foo.vhd                     --std=02
 vhdl   basic_library     basic_library/package_with_functions.vhd
+vhdl   basic_library     basic_library/clk_en_generator.vhd
 

@@ -20,7 +20,31 @@ use ieee.std_logic_unsigned.all;
 
 package very_common_pkg is
     constant VIM_HDL_VERSION : string := "0.1";
-end;
+
+    component clock_divider is
+        generic (
+            DIVIDER : integer := 10
+        );
+        port (
+            reset : in std_logic;
+            clk_input : in  std_logic;
+            clk_output : out std_logic
+        );
+    end component;
+
+    component clk_en_generator is
+        generic (
+            DIVIDER : integer := 10
+        );
+        port (
+            reset     : in std_logic;
+            clk_input : in  std_logic;
+            clk_en    : out std_logic
+        );
+
+    end component;
+
+end package;
 
 package body very_common_pkg is
 
