@@ -13,9 +13,10 @@
 -- You should have received a copy of the GNU General Public License
 -- along with vim-hdl.  If not, see <http://www.gnu.org/licenses/>.
 
-library	ieee;
-use ieee.std_logic_1164.all;  
-use ieee.std_logic_arith.all;			   
+library ieee;
+    use ieee.std_logic_1164.all;
+    use ieee.numeric_std.all;
+
 library basic_library;
 
 entity foo is
