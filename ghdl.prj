@@ -1,7 +1,4 @@
-global_build_flags[vhdl] = --warn-binding --syn-binding --std=08
-# Compiler selection
 builder = ghdl
-# Location of the built files
 target_dir = .build
 
 vhdl   basic_library     basic_library/very_common_pkg.vhd

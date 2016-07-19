@@ -36,11 +36,11 @@ end foo;
 
 architecture foo of foo is
 
-    -- A VHDL 2008 construct
-    type neat_vector is array (natural range <>, natural range <>) of std_logic_vector;
+
+
 
     -- A signal declaration that generates a warning
-    signal neat_signal : neat_vector(DIVIDER_A - 1 downto 0, DIVIDER_B - 1 downto 0)(1 downto 0) := (others => (others => (others => '0')));
+    signal neat_signal : std_logic_vector(DIVIDER_A + DIVIDER_B - 1 downto 0) := (others => '0');
 
 begin
 
