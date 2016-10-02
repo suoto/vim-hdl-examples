@@ -17,6 +17,8 @@ library ieee;
     use ieee.std_logic_1164.all;
     use ieee.numeric_std.all;
 
+library basic_library;
+
 use work.package_with_constants;
 
 entity clock_divider is
@@ -36,9 +38,19 @@ architecture clock_divider of clock_divider is
     signal counter      : integer range 0 to DIVIDER - 1 := 0;
     signal clk_internal : std_logic := '0';
 
+    signal clk_enable_unused : std_logic := '0';
+
 begin
 
     clk_output <= clk_internal;
+
+    useless_u : entity basic_library.clk_en_generator
+        generic map (
+            DIVIDER => DIVIDER)
+        port map (
+            reset     => reset,
+            clk_input => clk_input,
+            clk_en    => clk_enable_unused);
 
     -- We read 'reset' signal asynchronously inside the process to force
     -- msim issuing a synthesis warning
