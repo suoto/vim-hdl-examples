@@ -18,6 +18,7 @@ library ieee;
     use ieee.numeric_std.all;
 
 library basic_library;
+    use basic_library.very_common_pkg.all;
 
 use work.package_with_constants;
 
@@ -44,7 +45,7 @@ begin
 
     clk_output <= clk_internal;
 
-    useless_u : entity basic_library.clk_en_generator
+    useless_u : clk_en_generator
         generic map (
             DIVIDER => DIVIDER)
         port map (
